@@ -14,7 +14,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    Provider.of<ThemeNotifier>(context);
 
     return Scaffold(
       body: SingleChildScrollView(
@@ -72,10 +72,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                 ),
                                 IconButton(
                                   onPressed: () {
-                                    themeNotifier.toggleTheme();
+                                    Provider.of<ThemeNotifier>(context,
+                                            listen: false)
+                                        .toggleTheme();
                                   },
                                   icon: const Icon(
-                                    Icons.invert_colors,
+                                    Icons.brightness_6,
                                     color: Colors.white,
                                     size: 24,
                                   ),

@@ -7,8 +7,8 @@ class ThemeNotifier extends ChangeNotifier {
 
   ThemeNotifier(this._currentTheme, this._isDarkTheme);
 
-  ThemeData get currentTheme => _currentTheme;
   bool get isDarkTheme => _isDarkTheme;
+  ThemeData get currentTheme => _currentTheme;
 
   void toggleTheme() {
     if (_isDarkTheme) {
