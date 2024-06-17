@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:replica_nubank/app/modules/home_page/theme_notifier.dart';
 
 class HomePageScreen extends StatefulWidget {
   const HomePageScreen({super.key});
@@ -12,6 +14,8 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+
     return Scaffold(
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -67,9 +71,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    themeNotifier.toggleTheme();
+                                  },
                                   icon: const Icon(
-                                    Icons.help_outline_rounded,
+                                    Icons.invert_colors,
                                     color: Colors.white,
                                     size: 24,
                                   ),
@@ -128,14 +134,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     height: 32,
                     color: _showConfigurations
                         ? Colors.transparent
-                        : Colors.grey[200],
+                        : Theme.of(context).colorScheme.surface,
                     child: _showConfigurations
                         ? const Text(
                             'R\$ 2.500,00',
                             style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24),
+                                fontWeight: FontWeight.bold, fontSize: 24),
                           )
                         : null,
                   ),
@@ -152,11 +156,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   children: [
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.pix_sharp),
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                         iconSize: 24,
                       ),
                     ),
@@ -165,11 +169,11 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.ac_unit_outlined),
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                         iconSize: 24,
                       ),
                     ),
@@ -178,12 +182,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.send_to_mobile_rounded),
                         iconSize: 24,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(
@@ -191,12 +195,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.sim_card_download_rounded),
                         iconSize: 24,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(
@@ -204,12 +208,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.access_alarm_outlined),
                         iconSize: 24,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(
@@ -217,12 +221,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.sim_card_download_rounded),
                         iconSize: 24,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(
@@ -230,12 +234,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.sim_card_download_rounded),
                         iconSize: 24,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(
@@ -243,12 +247,12 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                     CircleAvatar(
                       radius: 36,
-                      backgroundColor: Colors.grey[300],
+                      backgroundColor: Theme.of(context).colorScheme.surface,
                       child: IconButton(
                         onPressed: () {},
                         icon: const Icon(Icons.sim_card_download_rounded),
                         iconSize: 24,
-                        color: Colors.black,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     const SizedBox(
@@ -263,10 +267,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
               child: Row(
                 children: [
                   Container(
-                    width: 340,
+                    width: 342,
                     height: 56,
                     decoration: BoxDecoration(
-                      color: Colors.grey[200],
+                      color: Theme.of(context).colorScheme.surface,
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: const Row(
@@ -295,60 +299,68 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 child: Row(
                   children: [
                     Container(
-                      width: 342,
+                      width: 263,
                       height: 80,
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Theme.of(context).colorScheme.surface,
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: RichText(
-                          text: const TextSpan(children: [
+                          text: TextSpan(children: [
                             TextSpan(
-                              text: 'Seu',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            TextSpan(
+                                text: 'Seu',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary)),
+                            const TextSpan(
                               text: ' informe de rendimento',
                               style: TextStyle(
                                 color: Color(0xff8A19D6),
                               ),
                             ),
                             TextSpan(
-                              text: ' 2021 já está disponivel',
-                              style: TextStyle(color: Colors.black),
-                            ),
+                                text: ' 2021 já está disponivel',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary)),
                           ]),
                         ),
                       ),
                     ),
                     const SizedBox(width: 16),
                     Container(
-                      width: 342,
+                      width: 263,
                       height: 80,
                       decoration: BoxDecoration(
-                        color: Colors.grey[200],
+                        color: Theme.of(context).colorScheme.surface,
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: RichText(
-                          text: const TextSpan(children: [
+                          text: TextSpan(children: [
                             TextSpan(
-                              text: 'Seu',
-                              style: TextStyle(color: Colors.black),
-                            ),
-                            TextSpan(
+                                text: 'Seu',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary)),
+                            const TextSpan(
                               text: ' informe de rendimento',
                               style: TextStyle(
                                 color: Color(0xff8A19D6),
                               ),
                             ),
                             TextSpan(
-                              text: ' 2021 já está disponivel',
-                              style: TextStyle(color: Colors.black),
-                            ),
+                                text: ' 2021 já está disponivel',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary)),
                           ]),
                         ),
                       ),
@@ -357,15 +369,19 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 ),
               ),
             ),
-            const Divider(
-              thickness: 1,
+            const SizedBox(
+              height: 16,
+            ),
+            Divider(
+              thickness: 2,
+              color: Theme.of(context).colorScheme.surface,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 24.0, top: 40.0),
               child: Container(
                 width: 390,
                 height: 250,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onPrimary,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -407,8 +423,10 @@ class _HomePageScreenState extends State<HomePageScreen> {
                           child: TextButton(
                             onPressed: () {},
                             style: const ButtonStyle(
-                                backgroundColor:
-                                    WidgetStatePropertyAll(Color(0xff8A19D6))),
+                              backgroundColor: WidgetStatePropertyAll(
+                                Color(0xff8A19D6),
+                              ),
+                            ),
                             child: const Text(
                               'Pedir cartão',
                               style: TextStyle(color: Colors.white),
@@ -421,8 +439,9 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 ),
               ),
             ),
-            const Divider(
-              thickness: 1,
+            Divider(
+              thickness: 2,
+              color: Theme.of(context).colorScheme.surface,
             ),
             const Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -451,7 +470,79 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       height: 272,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.grey[200],
+                          color: Theme.of(context).colorScheme.surface,
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      topLeft: Radius.circular(
+                                          10)), // Define o raio da borda
+                                  child: Image.asset(
+                                    'assets/porta_salario.png',
+                                    width: 236.0,
+                                    height: 119.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: 16.0, left: 8),
+                                  child: Text(
+                                    'Portabilidade de salário',
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
+                            const Padding(
+                              padding:
+                                  EdgeInsets.only(top: 8.0, left: 8, bottom: 8),
+                              child: Row(
+                                children: [
+                                  Text(
+                                      'Sua liberdade financeira comeca\n com você escolhendo...'),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(left: 12.0),
+                              child: SizedBox(
+                                width: 117,
+                                child: TextButton(
+                                  onPressed: () {},
+                                  style: const ButtonStyle(
+                                      backgroundColor: WidgetStatePropertyAll(
+                                          Color(0xff8A19D6))),
+                                  child: const Text(
+                                    'Conhecer',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    SizedBox(
+                      width: 236,
+                      height: 272,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).colorScheme.surface,
                             borderRadius: BorderRadius.circular(15.0)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -459,15 +550,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             Row(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      15.0), // Define o raio da borda
+                                  borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      topLeft: Radius.circular(10)),
                                   child: Image.asset(
                                     'assets/porta_salario.png',
                                     width: 236.0,
                                     height: 119.0,
                                     fit: BoxFit.cover,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             const Row(
@@ -519,7 +611,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       height: 272,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.grey[200],
+                            color: Theme.of(context).colorScheme.surface,
                             borderRadius: BorderRadius.circular(15.0)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -527,15 +619,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
                             Row(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      15.0), // Define o raio da borda
+                                  borderRadius: const BorderRadius.only(
+                                      topRight: Radius.circular(10),
+                                      topLeft: Radius.circular(10)),
                                   child: Image.asset(
                                     'assets/porta_salario.png',
                                     width: 236.0,
                                     height: 119.0,
                                     fit: BoxFit.cover,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             const Row(
@@ -565,14 +658,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               child: SizedBox(
                                 width: 117,
                                 child: TextButton(
-                                    onPressed: () {},
-                                    style: const ButtonStyle(
-                                        backgroundColor: WidgetStatePropertyAll(
-                                            Color(0xff8A19D6))),
-                                    child: const Text(
-                                      'Conhecer',
-                                      style: TextStyle(color: Colors.white),
-                                    )),
+                                  onPressed: () {},
+                                  style: const ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      Color(0xff8A19D6),
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    'Conhecer',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -587,91 +683,26 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       height: 272,
                       child: Container(
                         decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(15.0)),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      15.0), // Define o raio da borda
-                                  child: Image.asset(
-                                    'assets/porta_salario.png',
-                                    width: 236.0,
-                                    height: 119.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Row(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(top: 16.0, left: 8),
-                                  child: Text(
-                                    'Portabilidade de salário',
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
-                                  ),
-                                )
-                              ],
-                            ),
-                            const Padding(
-                              padding:
-                                  EdgeInsets.only(top: 8.0, left: 8, bottom: 8),
-                              child: Row(
-                                children: [
-                                  Text(
-                                      'Sua liberdade financeira comeca\n com você escolhendo...'),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 12.0),
-                              child: SizedBox(
-                                width: 117,
-                                child: TextButton(
-                                    onPressed: () {},
-                                    style: const ButtonStyle(
-                                        backgroundColor: WidgetStatePropertyAll(
-                                            Color(0xff8A19D6))),
-                                    child: const Text(
-                                      'Conhecer',
-                                      style: TextStyle(color: Colors.white),
-                                    )),
-                              ),
-                            ),
-                          ],
+                          color: Theme.of(context).colorScheme.surface,
+                          borderRadius: BorderRadius.circular(15.0),
                         ),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 16,
-                    ),
-                    SizedBox(
-                      width: 236,
-                      height: 272,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.grey[200],
-                            borderRadius: BorderRadius.circular(15.0)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Row(
                               children: [
                                 ClipRRect(
-                                  borderRadius: BorderRadius.circular(
-                                      15.0), // Define o raio da borda
+                                  borderRadius: const BorderRadius.only(
+                                    topRight: Radius.circular(10),
+                                    topLeft: Radius.circular(10),
+                                  ),
                                   child: Image.asset(
                                     'assets/porta_salario.png',
                                     width: 236.0,
                                     height: 119.0,
                                     fit: BoxFit.cover,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                             const Row(
@@ -704,14 +735,17 @@ class _HomePageScreenState extends State<HomePageScreen> {
                               child: SizedBox(
                                 width: 117,
                                 child: TextButton(
-                                    onPressed: () {},
-                                    style: const ButtonStyle(
-                                        backgroundColor: WidgetStatePropertyAll(
-                                            Color(0xff8A19D6))),
-                                    child: const Text(
-                                      'Conhecer',
-                                      style: TextStyle(color: Colors.white),
-                                    )),
+                                  onPressed: () {},
+                                  style: const ButtonStyle(
+                                    backgroundColor: WidgetStatePropertyAll(
+                                      Color(0xff8A19D6),
+                                    ),
+                                  ),
+                                  child: const Text(
+                                    'Conhecer',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
