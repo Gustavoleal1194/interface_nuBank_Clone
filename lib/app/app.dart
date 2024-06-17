@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       data: themeNotifier.currentTheme,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'NuBank Clone',
         theme: themeNotifier.currentTheme,
         initialRoute: '/',
         routes: {
